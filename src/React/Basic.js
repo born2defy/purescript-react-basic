@@ -3,6 +3,29 @@
 var React = require("react");
 var Fragment = React.Fragment || "div";
 
+exports.useContext_ = function(ctxObj){ 
+    return function(){
+      return React.useContext(ctxObj);
+    };
+};
+
+exports.mkContext_ = function(ctxVal){
+    return React.createContext(ctxVal);
+};
+
+exports.runContext_ = function(component, ctxObj, ctx, props){
+  var provider = ctxObj.provider;
+  var payload = React.createElement.apply(null,[component, props].concat((props && props.children) || null));
+  return React.createElement(provider, { value: ctx }, payload);
+}
+
+exports.element_ = function (component, props) {
+  return React.createElement.apply(
+    null,
+    [component, props].concat((props && props.children) || null)
+  );
+};
+
 exports.useState_ = function(initialState) {
   var state = React.useState(initialState);
   return { value: state[0], setValue: state[1] };

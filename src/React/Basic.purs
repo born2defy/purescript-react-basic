@@ -15,13 +15,18 @@ module React.Basic
   , renderRef
   , writeRef
   , useRef
+  , Context
+  , mkContext
+  , useContext
+  , runContext
+  , runNoContext
   , Key
   , class ToKey
   , toKey
   , empty
   , keyed
   , fragment
-  , element
+ -- , element
   , elementKeyed
   , displayName
   , module Data.Tuple
@@ -30,7 +35,7 @@ module React.Basic
 
 import Prelude
 
-import Data.Function.Uncurried (Fn2, mkFn2, runFn2)
+import Data.Function.Uncurried (Fn2, Fn4, mkFn2, runFn2, runFn4)
 import Data.Maybe (Maybe)
 import Data.Nullable (Nullable, toNullable)
 import Data.Tuple (Tuple(..))
@@ -39,16 +44,16 @@ import Effect (Effect)
 import Effect.Uncurried (EffectFn1, EffectFn2, EffectFn3, mkEffectFn1, runEffectFn1, runEffectFn2, runEffectFn3)
 import Unsafe.Coerce (unsafeCoerce)
 
-newtype Component props = Component (EffectFn1 props JSX)
+newtype Component ctx props = Component (EffectFn1 props JSX)
 
-newtype Render a = Render (Effect a)
+newtype Render ctx a = Render (Effect a)
 
-derive newtype instance functorRender :: Functor Render
-derive newtype instance applyRender :: Apply Render
-derive newtype instance bindRender :: Bind Render
+derive newtype instance functorRender :: Functor (Render ctx)
+derive newtype instance applyRender :: Apply (Render ctx)
+derive newtype instance bindRender :: Bind (Render ctx)
 
 -- | render
-render :: JSX -> Render JSX
+render :: ∀ ctx. JSX -> Render ctx JSX
 render jsx = Render (pure jsx)
 
 -- | Conditional logic is not allowed in Render, making
@@ -56,42 +61,86 @@ render jsx = Render (pure jsx)
 -- | required, however, to extract Render logic into more
 -- | advanced helper functions. Never nest `unsafeRender`
 -- | in a conditionally or dynamically (if, case, for).
-unsafeRender :: forall a. a -> Render a
+unsafeRender :: forall ctx a. a -> Render ctx a
 unsafeRender a = Render (pure a)
 
-type CreateComponent props = Effect (Component props)
+type CreateComponent ctx props = Effect (Component ctx props)
 
+-- | Revised Version
 component
-  :: forall props
+  :: forall props ctx
    . String
-  -> (props -> Render JSX)
-  -> CreateComponent props
+  -> (props -> Render ctx JSX)
+  -> CreateComponent ctx props
 component name renderFn =
   let c = Component (mkEffectFn1 (unsafeCoerce renderFn))
    in runEffectFn2 unsafeSetDisplayName name c
 
+-- ORIGINAL VERSION
+-- component
+--   :: forall props ctx
+--    . String
+--   -> (props -> Render ctx JSX)
+--   -> CreateComponent props
+-- component name renderFn =
+--   let c = Component (mkEffectFn1 (unsafeCoerce renderFn))
+--    in runEffectFn2 unsafeSetDisplayName name c
+
+data Context ctx
+
+mkContext :: ∀ ctx. ctx -> Context ctx
+mkContext = mkContext_
+
+foreign import mkContext_ :: ∀ ctx. ctx -> Context ctx
+
+useContext :: ∀ ctx. Context ctx -> Render ctx ctx
+useContext = Render <<< useContext_
+
+foreign import useContext_ :: ∀ ctx. Context ctx -> Effect ctx
+
+noContext :: Context Unit
+noContext = mkContext unit
+
+runNoContext 
+  :: forall props
+   . Component Unit { | props }
+  -> { | props }
+  -> JSX
+runNoContext comp props = runContext comp noContext unit props
+
+runContext
+  :: forall ctx props
+   . Component ctx { | props }
+  -> Context ctx
+  -> ctx
+  -> { | props }
+  -> JSX
+runContext (Component c) ctxObj ctx props = runFn4 runContext_ c ctxObj ctx props
+
+foreign import runContext_ :: ∀ ctx props. Fn4 (EffectFn1 { | props } JSX) (Context ctx) ctx { | props } JSX
+
 -- | useState
 useState
-  :: forall state
+  :: forall state ctx
    . state
-  -> Render (Tuple state ((state -> state) -> Effect Unit))
+  -> Render ctx (Tuple state ((state -> state) -> Effect Unit))
 useState initialState = Render do
   { value, setValue } <- runEffectFn1 useState_ initialState
   pure (Tuple value (runEffectFn1 setValue))
 
 -- | useEffect
-useEffect :: Array Key -> Effect (Effect Unit) -> Render Unit
+useEffect :: ∀ ctx. Array Key -> Effect (Effect Unit) -> Render ctx Unit
 useEffect refs effect = Render (runEffectFn2 useEffect_ effect refs)
 
 -- | useReducer
 -- | TODO: add note about conditionally updating state
 useReducer
-  :: forall state action
+  :: forall state action ctx
    . ToKey state
   => (state -> action -> state)
   -> state
   -> Maybe action
-  -> Render (Tuple state (action -> Effect Unit))
+  -> Render ctx (Tuple state (action -> Effect Unit))
 useReducer reducer initialState initialAction = Render do
   { state, dispatch } <- runEffectFn3 useReducer_ (mkFn2 reducer) initialState (toNullable initialAction)
   pure (Tuple state (runEffectFn1 dispatch))
@@ -111,16 +160,16 @@ data Ref a
 readRef :: forall a. Ref a -> Effect a
 readRef = runEffectFn1 readRef_
 
-renderRef :: forall a. Ref a -> Render a
+renderRef :: forall ctx a. Ref a -> Render ctx a
 renderRef ref = Render (readRef ref)
 
 writeRef :: forall a. Ref a -> a -> Effect Unit
 writeRef = runEffectFn2 writeRef_
 
 useRef
-  :: forall a
+  :: forall ctx a
    . a
-  -> Render (Ref a)
+  -> Render ctx (Ref a)
 useRef initialValue = Render do
   runEffectFn1 useRef_ initialValue
 
@@ -206,12 +255,15 @@ foreign import fragment :: Array JSX -> JSX
 -- | imported from FFI.
 -- |
 -- | __*See also:* `Component`, `elementKeyed`__
-element
-  :: forall props
-   . Component { | props }
-  -> { | props }
-  -> JSX
-element (Component c) props = runFn2 element_ c props
+
+-- | ORIGINAL VERSION BELOW
+-- REPLACED WITH RUNCONTEXT AND RUNNOCONTEXT
+-- element
+--   :: forall props
+--    . Component { | props }
+--   -> { | props }
+--   -> JSX
+-- element (Component c) props = runFn2 element_ c props
 
 -- | Create a `JSX` node from a `Component`, by providing the props and a key.
 -- |
@@ -220,8 +272,8 @@ element (Component c) props = runFn2 element_ c props
 -- |
 -- | __*See also:* `Component`, `element`, React's documentation regarding the special `key` prop__
 elementKeyed
-  :: forall props
-   . Component { | props }
+  :: forall ctx props
+   . Component ctx { | props }
   -> { key :: String | props }
   -> JSX
 elementKeyed = runFn2 elementKeyed_
@@ -231,8 +283,8 @@ elementKeyed = runFn2 elementKeyed_
 -- |
 -- | __*See also:* `displayNameFromSelf`, `createComponent`__
 foreign import displayName
-  :: forall props
-   . Component props
+  :: forall props ctx
+   . Component ctx props
   -> String
 
 
@@ -242,8 +294,8 @@ foreign import displayName
 -- |
 
 foreign import unsafeSetDisplayName
-  :: forall props
-   . EffectFn2 String (Component props) (Component props)
+  :: forall props ctx
+   . EffectFn2 String (Component ctx props) (Component ctx props)
 
 foreign import useState_
   :: forall state
@@ -295,5 +347,5 @@ foreign import element_
    . Fn2 (EffectFn1 { | props } JSX) { | props } JSX
 
 foreign import elementKeyed_
-  :: forall props
-   . Fn2 (Component { | props }) { key :: String | props } JSX
+  :: forall ctx props
+   . Fn2 (Component ctx { | props }) { key :: String | props } JSX

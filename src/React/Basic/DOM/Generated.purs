@@ -5,7 +5,7 @@
 module React.Basic.DOM.Generated where
 
 import Prim.Row (class Union)
-import React.Basic (JSX, element)
+import React.Basic (JSX, runNoContext)
 import React.Basic.DOM.Internal (SharedProps, unsafeCreateDOMComponent)
 import React.Basic.Events (EventHandler)
 
@@ -27,7 +27,7 @@ a
    . Union attrs attrs_ (SharedProps Props_a)
   => Record attrs
   -> JSX
-a = element (unsafeCreateDOMComponent "a")
+a = runNoContext (unsafeCreateDOMComponent "a")
 
 a_ :: Array JSX -> JSX
 a_ children = a { children }
@@ -42,7 +42,7 @@ abbr
    . Union attrs attrs_ (SharedProps Props_abbr)
   => Record attrs
   -> JSX
-abbr = element (unsafeCreateDOMComponent "abbr")
+abbr = runNoContext (unsafeCreateDOMComponent "abbr")
 
 abbr_ :: Array JSX -> JSX
 abbr_ children = abbr { children }
@@ -56,7 +56,7 @@ address
    . Union attrs attrs_ (SharedProps Props_address)
   => Record attrs
   -> JSX
-address = element (unsafeCreateDOMComponent "address")
+address = runNoContext (unsafeCreateDOMComponent "address")
 
 address_ :: Array JSX -> JSX
 address_ children = address { children }
@@ -77,7 +77,7 @@ area
    . Union attrs attrs_ (SharedProps Props_area)
   => Record attrs
   -> JSX
-area = element (unsafeCreateDOMComponent "area")
+area = runNoContext (unsafeCreateDOMComponent "area")
 
 type Props_article =
   ( children :: Array JSX
@@ -88,7 +88,7 @@ article
    . Union attrs attrs_ (SharedProps Props_article)
   => Record attrs
   -> JSX
-article = element (unsafeCreateDOMComponent "article")
+article = runNoContext (unsafeCreateDOMComponent "article")
 
 article_ :: Array JSX -> JSX
 article_ children = article { children }
@@ -102,7 +102,7 @@ aside
    . Union attrs attrs_ (SharedProps Props_aside)
   => Record attrs
   -> JSX
-aside = element (unsafeCreateDOMComponent "aside")
+aside = runNoContext (unsafeCreateDOMComponent "aside")
 
 aside_ :: Array JSX -> JSX
 aside_ children = aside { children }
@@ -121,7 +121,7 @@ audio
    . Union attrs attrs_ (SharedProps Props_audio)
   => Record attrs
   -> JSX
-audio = element (unsafeCreateDOMComponent "audio")
+audio = runNoContext (unsafeCreateDOMComponent "audio")
 
 audio_ :: Array JSX -> JSX
 audio_ children = audio { children }
@@ -135,7 +135,7 @@ b
    . Union attrs attrs_ (SharedProps Props_b)
   => Record attrs
   -> JSX
-b = element (unsafeCreateDOMComponent "b")
+b = runNoContext (unsafeCreateDOMComponent "b")
 
 b_ :: Array JSX -> JSX
 b_ children = b { children }
@@ -150,7 +150,7 @@ base
    . Union attrs attrs_ (SharedProps Props_base)
   => Record attrs
   -> JSX
-base = element (unsafeCreateDOMComponent "base")
+base = runNoContext (unsafeCreateDOMComponent "base")
 
 type Props_bdi =
   ( children :: Array JSX
@@ -161,7 +161,7 @@ bdi
    . Union attrs attrs_ (SharedProps Props_bdi)
   => Record attrs
   -> JSX
-bdi = element (unsafeCreateDOMComponent "bdi")
+bdi = runNoContext (unsafeCreateDOMComponent "bdi")
 
 bdi_ :: Array JSX -> JSX
 bdi_ children = bdi { children }
@@ -176,7 +176,7 @@ bdo
    . Union attrs attrs_ (SharedProps Props_bdo)
   => Record attrs
   -> JSX
-bdo = element (unsafeCreateDOMComponent "bdo")
+bdo = runNoContext (unsafeCreateDOMComponent "bdo")
 
 bdo_ :: Array JSX -> JSX
 bdo_ children = bdo { children }
@@ -191,7 +191,7 @@ blockquote
    . Union attrs attrs_ (SharedProps Props_blockquote)
   => Record attrs
   -> JSX
-blockquote = element (unsafeCreateDOMComponent "blockquote")
+blockquote = runNoContext (unsafeCreateDOMComponent "blockquote")
 
 blockquote_ :: Array JSX -> JSX
 blockquote_ children = blockquote { children }
@@ -205,7 +205,7 @@ body
    . Union attrs attrs_ (SharedProps Props_body)
   => Record attrs
   -> JSX
-body = element (unsafeCreateDOMComponent "body")
+body = runNoContext (unsafeCreateDOMComponent "body")
 
 body_ :: Array JSX -> JSX
 body_ children = body { children }
@@ -217,7 +217,7 @@ br
    . Union attrs attrs_ (SharedProps Props_br)
   => Record attrs
   -> JSX
-br = element (unsafeCreateDOMComponent "br")
+br = runNoContext (unsafeCreateDOMComponent "br")
 
 type Props_button =
   ( children :: Array JSX
@@ -233,7 +233,7 @@ button
    . Union attrs attrs_ (SharedProps Props_button)
   => Record attrs
   -> JSX
-button = element (unsafeCreateDOMComponent "button")
+button = runNoContext (unsafeCreateDOMComponent "button")
 
 button_ :: Array JSX -> JSX
 button_ children = button { children }
@@ -249,7 +249,7 @@ canvas
    . Union attrs attrs_ (SharedProps Props_canvas)
   => Record attrs
   -> JSX
-canvas = element (unsafeCreateDOMComponent "canvas")
+canvas = runNoContext (unsafeCreateDOMComponent "canvas")
 
 canvas_ :: Array JSX -> JSX
 canvas_ children = canvas { children }
@@ -263,7 +263,7 @@ caption
    . Union attrs attrs_ (SharedProps Props_caption)
   => Record attrs
   -> JSX
-caption = element (unsafeCreateDOMComponent "caption")
+caption = runNoContext (unsafeCreateDOMComponent "caption")
 
 caption_ :: Array JSX -> JSX
 caption_ children = caption { children }
@@ -277,7 +277,7 @@ cite
    . Union attrs attrs_ (SharedProps Props_cite)
   => Record attrs
   -> JSX
-cite = element (unsafeCreateDOMComponent "cite")
+cite = runNoContext (unsafeCreateDOMComponent "cite")
 
 cite_ :: Array JSX -> JSX
 cite_ children = cite { children }
@@ -291,7 +291,7 @@ code
    . Union attrs attrs_ (SharedProps Props_code)
   => Record attrs
   -> JSX
-code = element (unsafeCreateDOMComponent "code")
+code = runNoContext (unsafeCreateDOMComponent "code")
 
 code_ :: Array JSX -> JSX
 code_ children = code { children }
@@ -306,7 +306,7 @@ col
    . Union attrs attrs_ (SharedProps Props_col)
   => Record attrs
   -> JSX
-col = element (unsafeCreateDOMComponent "col")
+col = runNoContext (unsafeCreateDOMComponent "col")
 
 type Props_colgroup =
   ( children :: Array JSX
@@ -319,7 +319,7 @@ colgroup
    . Union attrs attrs_ (SharedProps Props_colgroup)
   => Record attrs
   -> JSX
-colgroup = element (unsafeCreateDOMComponent "colgroup")
+colgroup = runNoContext (unsafeCreateDOMComponent "colgroup")
 
 colgroup_ :: Array JSX -> JSX
 colgroup_ children = colgroup { children }
@@ -334,7 +334,7 @@ data'
    . Union attrs attrs_ (SharedProps Props_data)
   => Record attrs
   -> JSX
-data' = element (unsafeCreateDOMComponent "data")
+data' = runNoContext (unsafeCreateDOMComponent "data")
 
 data_ :: Array JSX -> JSX
 data_ children = data' { children }
@@ -348,7 +348,7 @@ datalist
    . Union attrs attrs_ (SharedProps Props_datalist)
   => Record attrs
   -> JSX
-datalist = element (unsafeCreateDOMComponent "datalist")
+datalist = runNoContext (unsafeCreateDOMComponent "datalist")
 
 datalist_ :: Array JSX -> JSX
 datalist_ children = datalist { children }
@@ -362,7 +362,7 @@ dd
    . Union attrs attrs_ (SharedProps Props_dd)
   => Record attrs
   -> JSX
-dd = element (unsafeCreateDOMComponent "dd")
+dd = runNoContext (unsafeCreateDOMComponent "dd")
 
 dd_ :: Array JSX -> JSX
 dd_ children = dd { children }
@@ -377,7 +377,7 @@ del
    . Union attrs attrs_ (SharedProps Props_del)
   => Record attrs
   -> JSX
-del = element (unsafeCreateDOMComponent "del")
+del = runNoContext (unsafeCreateDOMComponent "del")
 
 del_ :: Array JSX -> JSX
 del_ children = del { children }
@@ -392,7 +392,7 @@ details
    . Union attrs attrs_ (SharedProps Props_details)
   => Record attrs
   -> JSX
-details = element (unsafeCreateDOMComponent "details")
+details = runNoContext (unsafeCreateDOMComponent "details")
 
 details_ :: Array JSX -> JSX
 details_ children = details { children }
@@ -407,7 +407,7 @@ dfn
    . Union attrs attrs_ (SharedProps Props_dfn)
   => Record attrs
   -> JSX
-dfn = element (unsafeCreateDOMComponent "dfn")
+dfn = runNoContext (unsafeCreateDOMComponent "dfn")
 
 dfn_ :: Array JSX -> JSX
 dfn_ children = dfn { children }
@@ -422,7 +422,7 @@ dialog
    . Union attrs attrs_ (SharedProps Props_dialog)
   => Record attrs
   -> JSX
-dialog = element (unsafeCreateDOMComponent "dialog")
+dialog = runNoContext (unsafeCreateDOMComponent "dialog")
 
 dialog_ :: Array JSX -> JSX
 dialog_ children = dialog { children }
@@ -436,7 +436,7 @@ div
    . Union attrs attrs_ (SharedProps Props_div)
   => Record attrs
   -> JSX
-div = element (unsafeCreateDOMComponent "div")
+div = runNoContext (unsafeCreateDOMComponent "div")
 
 div_ :: Array JSX -> JSX
 div_ children = div { children }
@@ -450,7 +450,7 @@ dl
    . Union attrs attrs_ (SharedProps Props_dl)
   => Record attrs
   -> JSX
-dl = element (unsafeCreateDOMComponent "dl")
+dl = runNoContext (unsafeCreateDOMComponent "dl")
 
 dl_ :: Array JSX -> JSX
 dl_ children = dl { children }
@@ -464,7 +464,7 @@ dt
    . Union attrs attrs_ (SharedProps Props_dt)
   => Record attrs
   -> JSX
-dt = element (unsafeCreateDOMComponent "dt")
+dt = runNoContext (unsafeCreateDOMComponent "dt")
 
 dt_ :: Array JSX -> JSX
 dt_ children = dt { children }
@@ -478,7 +478,7 @@ em
    . Union attrs attrs_ (SharedProps Props_em)
   => Record attrs
   -> JSX
-em = element (unsafeCreateDOMComponent "em")
+em = runNoContext (unsafeCreateDOMComponent "em")
 
 em_ :: Array JSX -> JSX
 em_ children = em { children }
@@ -495,7 +495,7 @@ embed
    . Union attrs attrs_ (SharedProps Props_embed)
   => Record attrs
   -> JSX
-embed = element (unsafeCreateDOMComponent "embed")
+embed = runNoContext (unsafeCreateDOMComponent "embed")
 
 type Props_fieldset =
   ( children :: Array JSX
@@ -509,7 +509,7 @@ fieldset
    . Union attrs attrs_ (SharedProps Props_fieldset)
   => Record attrs
   -> JSX
-fieldset = element (unsafeCreateDOMComponent "fieldset")
+fieldset = runNoContext (unsafeCreateDOMComponent "fieldset")
 
 fieldset_ :: Array JSX -> JSX
 fieldset_ children = fieldset { children }
@@ -523,7 +523,7 @@ figcaption
    . Union attrs attrs_ (SharedProps Props_figcaption)
   => Record attrs
   -> JSX
-figcaption = element (unsafeCreateDOMComponent "figcaption")
+figcaption = runNoContext (unsafeCreateDOMComponent "figcaption")
 
 figcaption_ :: Array JSX -> JSX
 figcaption_ children = figcaption { children }
@@ -537,7 +537,7 @@ figure
    . Union attrs attrs_ (SharedProps Props_figure)
   => Record attrs
   -> JSX
-figure = element (unsafeCreateDOMComponent "figure")
+figure = runNoContext (unsafeCreateDOMComponent "figure")
 
 figure_ :: Array JSX -> JSX
 figure_ children = figure { children }
@@ -551,7 +551,7 @@ footer
    . Union attrs attrs_ (SharedProps Props_footer)
   => Record attrs
   -> JSX
-footer = element (unsafeCreateDOMComponent "footer")
+footer = runNoContext (unsafeCreateDOMComponent "footer")
 
 footer_ :: Array JSX -> JSX
 footer_ children = footer { children }
@@ -574,7 +574,7 @@ form
    . Union attrs attrs_ (SharedProps Props_form)
   => Record attrs
   -> JSX
-form = element (unsafeCreateDOMComponent "form")
+form = runNoContext (unsafeCreateDOMComponent "form")
 
 form_ :: Array JSX -> JSX
 form_ children = form { children }
@@ -588,7 +588,7 @@ h1
    . Union attrs attrs_ (SharedProps Props_h1)
   => Record attrs
   -> JSX
-h1 = element (unsafeCreateDOMComponent "h1")
+h1 = runNoContext (unsafeCreateDOMComponent "h1")
 
 h1_ :: Array JSX -> JSX
 h1_ children = h1 { children }
@@ -602,7 +602,7 @@ h2
    . Union attrs attrs_ (SharedProps Props_h2)
   => Record attrs
   -> JSX
-h2 = element (unsafeCreateDOMComponent "h2")
+h2 = runNoContext (unsafeCreateDOMComponent "h2")
 
 h2_ :: Array JSX -> JSX
 h2_ children = h2 { children }
@@ -616,7 +616,7 @@ h3
    . Union attrs attrs_ (SharedProps Props_h3)
   => Record attrs
   -> JSX
-h3 = element (unsafeCreateDOMComponent "h3")
+h3 = runNoContext (unsafeCreateDOMComponent "h3")
 
 h3_ :: Array JSX -> JSX
 h3_ children = h3 { children }
@@ -630,7 +630,7 @@ h4
    . Union attrs attrs_ (SharedProps Props_h4)
   => Record attrs
   -> JSX
-h4 = element (unsafeCreateDOMComponent "h4")
+h4 = runNoContext (unsafeCreateDOMComponent "h4")
 
 h4_ :: Array JSX -> JSX
 h4_ children = h4 { children }
@@ -644,7 +644,7 @@ h5
    . Union attrs attrs_ (SharedProps Props_h5)
   => Record attrs
   -> JSX
-h5 = element (unsafeCreateDOMComponent "h5")
+h5 = runNoContext (unsafeCreateDOMComponent "h5")
 
 h5_ :: Array JSX -> JSX
 h5_ children = h5 { children }
@@ -658,7 +658,7 @@ h6
    . Union attrs attrs_ (SharedProps Props_h6)
   => Record attrs
   -> JSX
-h6 = element (unsafeCreateDOMComponent "h6")
+h6 = runNoContext (unsafeCreateDOMComponent "h6")
 
 h6_ :: Array JSX -> JSX
 h6_ children = h6 { children }
@@ -673,7 +673,7 @@ head
    . Union attrs attrs_ (SharedProps Props_head)
   => Record attrs
   -> JSX
-head = element (unsafeCreateDOMComponent "head")
+head = runNoContext (unsafeCreateDOMComponent "head")
 
 head_ :: Array JSX -> JSX
 head_ children = head { children }
@@ -687,7 +687,7 @@ header
    . Union attrs attrs_ (SharedProps Props_header)
   => Record attrs
   -> JSX
-header = element (unsafeCreateDOMComponent "header")
+header = runNoContext (unsafeCreateDOMComponent "header")
 
 header_ :: Array JSX -> JSX
 header_ children = header { children }
@@ -701,7 +701,7 @@ hgroup
    . Union attrs attrs_ (SharedProps Props_hgroup)
   => Record attrs
   -> JSX
-hgroup = element (unsafeCreateDOMComponent "hgroup")
+hgroup = runNoContext (unsafeCreateDOMComponent "hgroup")
 
 hgroup_ :: Array JSX -> JSX
 hgroup_ children = hgroup { children }
@@ -716,7 +716,7 @@ hr
    . Union attrs attrs_ (SharedProps Props_hr)
   => Record attrs
   -> JSX
-hr = element (unsafeCreateDOMComponent "hr")
+hr = runNoContext (unsafeCreateDOMComponent "hr")
 
 type Props_html =
   ( children :: Array JSX
@@ -728,7 +728,7 @@ html
    . Union attrs attrs_ (SharedProps Props_html)
   => Record attrs
   -> JSX
-html = element (unsafeCreateDOMComponent "html")
+html = runNoContext (unsafeCreateDOMComponent "html")
 
 html_ :: Array JSX -> JSX
 html_ children = html { children }
@@ -742,7 +742,7 @@ i
    . Union attrs attrs_ (SharedProps Props_i)
   => Record attrs
   -> JSX
-i = element (unsafeCreateDOMComponent "i")
+i = runNoContext (unsafeCreateDOMComponent "i")
 
 i_ :: Array JSX -> JSX
 i_ children = i { children }
@@ -762,7 +762,7 @@ iframe
    . Union attrs attrs_ (SharedProps Props_iframe)
   => Record attrs
   -> JSX
-iframe = element (unsafeCreateDOMComponent "iframe")
+iframe = runNoContext (unsafeCreateDOMComponent "iframe")
 
 iframe_ :: Array JSX -> JSX
 iframe_ children = iframe { children }
@@ -781,7 +781,7 @@ img
    . Union attrs attrs_ (SharedProps Props_img)
   => Record attrs
   -> JSX
-img = element (unsafeCreateDOMComponent "img")
+img = runNoContext (unsafeCreateDOMComponent "img")
 
 type Props_input =
   ( accept :: String
@@ -819,7 +819,7 @@ input
    . Union attrs attrs_ (SharedProps Props_input)
   => Record attrs
   -> JSX
-input = element (unsafeCreateDOMComponent "input")
+input = runNoContext (unsafeCreateDOMComponent "input")
 
 type Props_ins =
   ( children :: Array JSX
@@ -831,7 +831,7 @@ ins
    . Union attrs attrs_ (SharedProps Props_ins)
   => Record attrs
   -> JSX
-ins = element (unsafeCreateDOMComponent "ins")
+ins = runNoContext (unsafeCreateDOMComponent "ins")
 
 ins_ :: Array JSX -> JSX
 ins_ children = ins { children }
@@ -845,7 +845,7 @@ kbd
    . Union attrs attrs_ (SharedProps Props_kbd)
   => Record attrs
   -> JSX
-kbd = element (unsafeCreateDOMComponent "kbd")
+kbd = runNoContext (unsafeCreateDOMComponent "kbd")
 
 kbd_ :: Array JSX -> JSX
 kbd_ children = kbd { children }
@@ -863,7 +863,7 @@ keygen
    . Union attrs attrs_ (SharedProps Props_keygen)
   => Record attrs
   -> JSX
-keygen = element (unsafeCreateDOMComponent "keygen")
+keygen = runNoContext (unsafeCreateDOMComponent "keygen")
 
 keygen_ :: Array JSX -> JSX
 keygen_ children = keygen { children }
@@ -878,7 +878,7 @@ label
    . Union attrs attrs_ (SharedProps Props_label)
   => Record attrs
   -> JSX
-label = element (unsafeCreateDOMComponent "label")
+label = runNoContext (unsafeCreateDOMComponent "label")
 
 label_ :: Array JSX -> JSX
 label_ children = label { children }
@@ -892,7 +892,7 @@ legend
    . Union attrs attrs_ (SharedProps Props_legend)
   => Record attrs
   -> JSX
-legend = element (unsafeCreateDOMComponent "legend")
+legend = runNoContext (unsafeCreateDOMComponent "legend")
 
 legend_ :: Array JSX -> JSX
 legend_ children = legend { children }
@@ -908,7 +908,7 @@ li
    . Union attrs attrs_ (SharedProps Props_li)
   => Record attrs
   -> JSX
-li = element (unsafeCreateDOMComponent "li")
+li = runNoContext (unsafeCreateDOMComponent "li")
 
 li_ :: Array JSX -> JSX
 li_ children = li { children }
@@ -932,7 +932,7 @@ link
    . Union attrs attrs_ (SharedProps Props_link)
   => Record attrs
   -> JSX
-link = element (unsafeCreateDOMComponent "link")
+link = runNoContext (unsafeCreateDOMComponent "link")
 
 type Props_main =
   ( children :: Array JSX
@@ -943,7 +943,7 @@ main
    . Union attrs attrs_ (SharedProps Props_main)
   => Record attrs
   -> JSX
-main = element (unsafeCreateDOMComponent "main")
+main = runNoContext (unsafeCreateDOMComponent "main")
 
 main_ :: Array JSX -> JSX
 main_ children = main { children }
@@ -958,7 +958,7 @@ map
    . Union attrs attrs_ (SharedProps Props_map)
   => Record attrs
   -> JSX
-map = element (unsafeCreateDOMComponent "map")
+map = runNoContext (unsafeCreateDOMComponent "map")
 
 map_ :: Array JSX -> JSX
 map_ children = map { children }
@@ -972,7 +972,7 @@ mark
    . Union attrs attrs_ (SharedProps Props_mark)
   => Record attrs
   -> JSX
-mark = element (unsafeCreateDOMComponent "mark")
+mark = runNoContext (unsafeCreateDOMComponent "mark")
 
 mark_ :: Array JSX -> JSX
 mark_ children = mark { children }
@@ -986,7 +986,7 @@ math
    . Union attrs attrs_ (SharedProps Props_math)
   => Record attrs
   -> JSX
-math = element (unsafeCreateDOMComponent "math")
+math = runNoContext (unsafeCreateDOMComponent "math")
 
 math_ :: Array JSX -> JSX
 math_ children = math { children }
@@ -1000,7 +1000,7 @@ menu
    . Union attrs attrs_ (SharedProps Props_menu)
   => Record attrs
   -> JSX
-menu = element (unsafeCreateDOMComponent "menu")
+menu = runNoContext (unsafeCreateDOMComponent "menu")
 
 menu_ :: Array JSX -> JSX
 menu_ children = menu { children }
@@ -1014,7 +1014,7 @@ menuitem
    . Union attrs attrs_ (SharedProps Props_menuitem)
   => Record attrs
   -> JSX
-menuitem = element (unsafeCreateDOMComponent "menuitem")
+menuitem = runNoContext (unsafeCreateDOMComponent "menuitem")
 
 menuitem_ :: Array JSX -> JSX
 menuitem_ children = menuitem { children }
@@ -1029,7 +1029,7 @@ meta
    . Union attrs attrs_ (SharedProps Props_meta)
   => Record attrs
   -> JSX
-meta = element (unsafeCreateDOMComponent "meta")
+meta = runNoContext (unsafeCreateDOMComponent "meta")
 
 type Props_meter =
   ( children :: Array JSX
@@ -1046,7 +1046,7 @@ meter
    . Union attrs attrs_ (SharedProps Props_meter)
   => Record attrs
   -> JSX
-meter = element (unsafeCreateDOMComponent "meter")
+meter = runNoContext (unsafeCreateDOMComponent "meter")
 
 meter_ :: Array JSX -> JSX
 meter_ children = meter { children }
@@ -1060,7 +1060,7 @@ nav
    . Union attrs attrs_ (SharedProps Props_nav)
   => Record attrs
   -> JSX
-nav = element (unsafeCreateDOMComponent "nav")
+nav = runNoContext (unsafeCreateDOMComponent "nav")
 
 nav_ :: Array JSX -> JSX
 nav_ children = nav { children }
@@ -1074,7 +1074,7 @@ noscript
    . Union attrs attrs_ (SharedProps Props_noscript)
   => Record attrs
   -> JSX
-noscript = element (unsafeCreateDOMComponent "noscript")
+noscript = runNoContext (unsafeCreateDOMComponent "noscript")
 
 noscript_ :: Array JSX -> JSX
 noscript_ children = noscript { children }
@@ -1094,7 +1094,7 @@ object
    . Union attrs attrs_ (SharedProps Props_object)
   => Record attrs
   -> JSX
-object = element (unsafeCreateDOMComponent "object")
+object = runNoContext (unsafeCreateDOMComponent "object")
 
 object_ :: Array JSX -> JSX
 object_ children = object { children }
@@ -1111,7 +1111,7 @@ ol
    . Union attrs attrs_ (SharedProps Props_ol)
   => Record attrs
   -> JSX
-ol = element (unsafeCreateDOMComponent "ol")
+ol = runNoContext (unsafeCreateDOMComponent "ol")
 
 ol_ :: Array JSX -> JSX
 ol_ children = ol { children }
@@ -1127,7 +1127,7 @@ optgroup
    . Union attrs attrs_ (SharedProps Props_optgroup)
   => Record attrs
   -> JSX
-optgroup = element (unsafeCreateDOMComponent "optgroup")
+optgroup = runNoContext (unsafeCreateDOMComponent "optgroup")
 
 optgroup_ :: Array JSX -> JSX
 optgroup_ children = optgroup { children }
@@ -1145,7 +1145,7 @@ option
    . Union attrs attrs_ (SharedProps Props_option)
   => Record attrs
   -> JSX
-option = element (unsafeCreateDOMComponent "option")
+option = runNoContext (unsafeCreateDOMComponent "option")
 
 option_ :: Array JSX -> JSX
 option_ children = option { children }
@@ -1161,7 +1161,7 @@ output
    . Union attrs attrs_ (SharedProps Props_output)
   => Record attrs
   -> JSX
-output = element (unsafeCreateDOMComponent "output")
+output = runNoContext (unsafeCreateDOMComponent "output")
 
 output_ :: Array JSX -> JSX
 output_ children = output { children }
@@ -1175,7 +1175,7 @@ p
    . Union attrs attrs_ (SharedProps Props_p)
   => Record attrs
   -> JSX
-p = element (unsafeCreateDOMComponent "p")
+p = runNoContext (unsafeCreateDOMComponent "p")
 
 p_ :: Array JSX -> JSX
 p_ children = p { children }
@@ -1191,7 +1191,7 @@ param
    . Union attrs attrs_ (SharedProps Props_param)
   => Record attrs
   -> JSX
-param = element (unsafeCreateDOMComponent "param")
+param = runNoContext (unsafeCreateDOMComponent "param")
 
 type Props_picture =
   ( children :: Array JSX
@@ -1202,7 +1202,7 @@ picture
    . Union attrs attrs_ (SharedProps Props_picture)
   => Record attrs
   -> JSX
-picture = element (unsafeCreateDOMComponent "picture")
+picture = runNoContext (unsafeCreateDOMComponent "picture")
 
 picture_ :: Array JSX -> JSX
 picture_ children = picture { children }
@@ -1217,7 +1217,7 @@ pre
    . Union attrs attrs_ (SharedProps Props_pre)
   => Record attrs
   -> JSX
-pre = element (unsafeCreateDOMComponent "pre")
+pre = runNoContext (unsafeCreateDOMComponent "pre")
 
 pre_ :: Array JSX -> JSX
 pre_ children = pre { children }
@@ -1233,7 +1233,7 @@ progress
    . Union attrs attrs_ (SharedProps Props_progress)
   => Record attrs
   -> JSX
-progress = element (unsafeCreateDOMComponent "progress")
+progress = runNoContext (unsafeCreateDOMComponent "progress")
 
 progress_ :: Array JSX -> JSX
 progress_ children = progress { children }
@@ -1248,7 +1248,7 @@ q
    . Union attrs attrs_ (SharedProps Props_q)
   => Record attrs
   -> JSX
-q = element (unsafeCreateDOMComponent "q")
+q = runNoContext (unsafeCreateDOMComponent "q")
 
 q_ :: Array JSX -> JSX
 q_ children = q { children }
@@ -1262,7 +1262,7 @@ rb
    . Union attrs attrs_ (SharedProps Props_rb)
   => Record attrs
   -> JSX
-rb = element (unsafeCreateDOMComponent "rb")
+rb = runNoContext (unsafeCreateDOMComponent "rb")
 
 rb_ :: Array JSX -> JSX
 rb_ children = rb { children }
@@ -1276,7 +1276,7 @@ rp
    . Union attrs attrs_ (SharedProps Props_rp)
   => Record attrs
   -> JSX
-rp = element (unsafeCreateDOMComponent "rp")
+rp = runNoContext (unsafeCreateDOMComponent "rp")
 
 rp_ :: Array JSX -> JSX
 rp_ children = rp { children }
@@ -1290,7 +1290,7 @@ rt
    . Union attrs attrs_ (SharedProps Props_rt)
   => Record attrs
   -> JSX
-rt = element (unsafeCreateDOMComponent "rt")
+rt = runNoContext (unsafeCreateDOMComponent "rt")
 
 rt_ :: Array JSX -> JSX
 rt_ children = rt { children }
@@ -1304,7 +1304,7 @@ rtc
    . Union attrs attrs_ (SharedProps Props_rtc)
   => Record attrs
   -> JSX
-rtc = element (unsafeCreateDOMComponent "rtc")
+rtc = runNoContext (unsafeCreateDOMComponent "rtc")
 
 rtc_ :: Array JSX -> JSX
 rtc_ children = rtc { children }
@@ -1318,7 +1318,7 @@ ruby
    . Union attrs attrs_ (SharedProps Props_ruby)
   => Record attrs
   -> JSX
-ruby = element (unsafeCreateDOMComponent "ruby")
+ruby = runNoContext (unsafeCreateDOMComponent "ruby")
 
 ruby_ :: Array JSX -> JSX
 ruby_ children = ruby { children }
@@ -1332,7 +1332,7 @@ s
    . Union attrs attrs_ (SharedProps Props_s)
   => Record attrs
   -> JSX
-s = element (unsafeCreateDOMComponent "s")
+s = runNoContext (unsafeCreateDOMComponent "s")
 
 s_ :: Array JSX -> JSX
 s_ children = s { children }
@@ -1346,7 +1346,7 @@ samp
    . Union attrs attrs_ (SharedProps Props_samp)
   => Record attrs
   -> JSX
-samp = element (unsafeCreateDOMComponent "samp")
+samp = runNoContext (unsafeCreateDOMComponent "samp")
 
 samp_ :: Array JSX -> JSX
 samp_ children = samp { children }
@@ -1366,7 +1366,7 @@ script
    . Union attrs attrs_ (SharedProps Props_script)
   => Record attrs
   -> JSX
-script = element (unsafeCreateDOMComponent "script")
+script = runNoContext (unsafeCreateDOMComponent "script")
 
 script_ :: Array JSX -> JSX
 script_ children = script { children }
@@ -1380,7 +1380,7 @@ section
    . Union attrs attrs_ (SharedProps Props_section)
   => Record attrs
   -> JSX
-section = element (unsafeCreateDOMComponent "section")
+section = runNoContext (unsafeCreateDOMComponent "section")
 
 section_ :: Array JSX -> JSX
 section_ children = section { children }
@@ -1403,7 +1403,7 @@ select
    . Union attrs attrs_ (SharedProps Props_select)
   => Record attrs
   -> JSX
-select = element (unsafeCreateDOMComponent "select")
+select = runNoContext (unsafeCreateDOMComponent "select")
 
 select_ :: Array JSX -> JSX
 select_ children = select { children }
@@ -1418,7 +1418,7 @@ slot
    . Union attrs attrs_ (SharedProps Props_slot)
   => Record attrs
   -> JSX
-slot = element (unsafeCreateDOMComponent "slot")
+slot = runNoContext (unsafeCreateDOMComponent "slot")
 
 slot_ :: Array JSX -> JSX
 slot_ children = slot { children }
@@ -1432,7 +1432,7 @@ small
    . Union attrs attrs_ (SharedProps Props_small)
   => Record attrs
   -> JSX
-small = element (unsafeCreateDOMComponent "small")
+small = runNoContext (unsafeCreateDOMComponent "small")
 
 small_ :: Array JSX -> JSX
 small_ children = small { children }
@@ -1449,7 +1449,7 @@ source
    . Union attrs attrs_ (SharedProps Props_source)
   => Record attrs
   -> JSX
-source = element (unsafeCreateDOMComponent "source")
+source = runNoContext (unsafeCreateDOMComponent "source")
 
 type Props_span =
   ( children :: Array JSX
@@ -1460,7 +1460,7 @@ span
    . Union attrs attrs_ (SharedProps Props_span)
   => Record attrs
   -> JSX
-span = element (unsafeCreateDOMComponent "span")
+span = runNoContext (unsafeCreateDOMComponent "span")
 
 span_ :: Array JSX -> JSX
 span_ children = span { children }
@@ -1474,7 +1474,7 @@ strong
    . Union attrs attrs_ (SharedProps Props_strong)
   => Record attrs
   -> JSX
-strong = element (unsafeCreateDOMComponent "strong")
+strong = runNoContext (unsafeCreateDOMComponent "strong")
 
 strong_ :: Array JSX -> JSX
 strong_ children = strong { children }
@@ -1492,7 +1492,7 @@ style
    . Union attrs attrs_ (SharedProps Props_style)
   => Record attrs
   -> JSX
-style = element (unsafeCreateDOMComponent "style")
+style = runNoContext (unsafeCreateDOMComponent "style")
 
 style_ :: Array JSX -> JSX
 style_ children = style { children }
@@ -1506,7 +1506,7 @@ sub
    . Union attrs attrs_ (SharedProps Props_sub)
   => Record attrs
   -> JSX
-sub = element (unsafeCreateDOMComponent "sub")
+sub = runNoContext (unsafeCreateDOMComponent "sub")
 
 sub_ :: Array JSX -> JSX
 sub_ children = sub { children }
@@ -1520,7 +1520,7 @@ summary
    . Union attrs attrs_ (SharedProps Props_summary)
   => Record attrs
   -> JSX
-summary = element (unsafeCreateDOMComponent "summary")
+summary = runNoContext (unsafeCreateDOMComponent "summary")
 
 summary_ :: Array JSX -> JSX
 summary_ children = summary { children }
@@ -1534,7 +1534,7 @@ sup
    . Union attrs attrs_ (SharedProps Props_sup)
   => Record attrs
   -> JSX
-sup = element (unsafeCreateDOMComponent "sup")
+sup = runNoContext (unsafeCreateDOMComponent "sup")
 
 sup_ :: Array JSX -> JSX
 sup_ children = sup { children }
@@ -1790,7 +1790,7 @@ svg
    . Union attrs attrs_ (SharedProps Props_svg)
   => Record attrs
   -> JSX
-svg = element (unsafeCreateDOMComponent "svg")
+svg = runNoContext (unsafeCreateDOMComponent "svg")
 
 svg_ :: Array JSX -> JSX
 svg_ children = svg { children }
@@ -1806,7 +1806,7 @@ table
    . Union attrs attrs_ (SharedProps Props_table)
   => Record attrs
   -> JSX
-table = element (unsafeCreateDOMComponent "table")
+table = runNoContext (unsafeCreateDOMComponent "table")
 
 table_ :: Array JSX -> JSX
 table_ children = table { children }
@@ -1820,7 +1820,7 @@ tbody
    . Union attrs attrs_ (SharedProps Props_tbody)
   => Record attrs
   -> JSX
-tbody = element (unsafeCreateDOMComponent "tbody")
+tbody = runNoContext (unsafeCreateDOMComponent "tbody")
 
 tbody_ :: Array JSX -> JSX
 tbody_ children = tbody { children }
@@ -1838,7 +1838,7 @@ td
    . Union attrs attrs_ (SharedProps Props_td)
   => Record attrs
   -> JSX
-td = element (unsafeCreateDOMComponent "td")
+td = runNoContext (unsafeCreateDOMComponent "td")
 
 td_ :: Array JSX -> JSX
 td_ children = td { children }
@@ -1852,7 +1852,7 @@ template
    . Union attrs attrs_ (SharedProps Props_template)
   => Record attrs
   -> JSX
-template = element (unsafeCreateDOMComponent "template")
+template = runNoContext (unsafeCreateDOMComponent "template")
 
 template_ :: Array JSX -> JSX
 template_ children = template { children }
@@ -1879,7 +1879,7 @@ textarea
    . Union attrs attrs_ (SharedProps Props_textarea)
   => Record attrs
   -> JSX
-textarea = element (unsafeCreateDOMComponent "textarea")
+textarea = runNoContext (unsafeCreateDOMComponent "textarea")
 
 textarea_ :: Array JSX -> JSX
 textarea_ children = textarea { children }
@@ -1893,7 +1893,7 @@ tfoot
    . Union attrs attrs_ (SharedProps Props_tfoot)
   => Record attrs
   -> JSX
-tfoot = element (unsafeCreateDOMComponent "tfoot")
+tfoot = runNoContext (unsafeCreateDOMComponent "tfoot")
 
 tfoot_ :: Array JSX -> JSX
 tfoot_ children = tfoot { children }
@@ -1911,7 +1911,7 @@ th
    . Union attrs attrs_ (SharedProps Props_th)
   => Record attrs
   -> JSX
-th = element (unsafeCreateDOMComponent "th")
+th = runNoContext (unsafeCreateDOMComponent "th")
 
 th_ :: Array JSX -> JSX
 th_ children = th { children }
@@ -1925,7 +1925,7 @@ thead
    . Union attrs attrs_ (SharedProps Props_thead)
   => Record attrs
   -> JSX
-thead = element (unsafeCreateDOMComponent "thead")
+thead = runNoContext (unsafeCreateDOMComponent "thead")
 
 thead_ :: Array JSX -> JSX
 thead_ children = thead { children }
@@ -1939,7 +1939,7 @@ time
    . Union attrs attrs_ (SharedProps Props_time)
   => Record attrs
   -> JSX
-time = element (unsafeCreateDOMComponent "time")
+time = runNoContext (unsafeCreateDOMComponent "time")
 
 time_ :: Array JSX -> JSX
 time_ children = time { children }
@@ -1953,7 +1953,7 @@ title
    . Union attrs attrs_ (SharedProps Props_title)
   => Record attrs
   -> JSX
-title = element (unsafeCreateDOMComponent "title")
+title = runNoContext (unsafeCreateDOMComponent "title")
 
 title_ :: Array JSX -> JSX
 title_ children = title { children }
@@ -1967,7 +1967,7 @@ tr
    . Union attrs attrs_ (SharedProps Props_tr)
   => Record attrs
   -> JSX
-tr = element (unsafeCreateDOMComponent "tr")
+tr = runNoContext (unsafeCreateDOMComponent "tr")
 
 tr_ :: Array JSX -> JSX
 tr_ children = tr { children }
@@ -1984,7 +1984,7 @@ track
    . Union attrs attrs_ (SharedProps Props_track)
   => Record attrs
   -> JSX
-track = element (unsafeCreateDOMComponent "track")
+track = runNoContext (unsafeCreateDOMComponent "track")
 
 type Props_u =
   ( children :: Array JSX
@@ -1995,7 +1995,7 @@ u
    . Union attrs attrs_ (SharedProps Props_u)
   => Record attrs
   -> JSX
-u = element (unsafeCreateDOMComponent "u")
+u = runNoContext (unsafeCreateDOMComponent "u")
 
 u_ :: Array JSX -> JSX
 u_ children = u { children }
@@ -2010,7 +2010,7 @@ ul
    . Union attrs attrs_ (SharedProps Props_ul)
   => Record attrs
   -> JSX
-ul = element (unsafeCreateDOMComponent "ul")
+ul = runNoContext (unsafeCreateDOMComponent "ul")
 
 ul_ :: Array JSX -> JSX
 ul_ children = ul { children }
@@ -2024,7 +2024,7 @@ var
    . Union attrs attrs_ (SharedProps Props_var)
   => Record attrs
   -> JSX
-var = element (unsafeCreateDOMComponent "var")
+var = runNoContext (unsafeCreateDOMComponent "var")
 
 var_ :: Array JSX -> JSX
 var_ children = var { children }
@@ -2047,7 +2047,7 @@ video
    . Union attrs attrs_ (SharedProps Props_video)
   => Record attrs
   -> JSX
-video = element (unsafeCreateDOMComponent "video")
+video = runNoContext (unsafeCreateDOMComponent "video")
 
 video_ :: Array JSX -> JSX
 video_ children = video { children }
@@ -2059,4 +2059,4 @@ wbr
    . Union attrs attrs_ (SharedProps Props_wbr)
   => Record attrs
   -> JSX
-wbr = element (unsafeCreateDOMComponent "wbr")
+wbr = runNoContext (unsafeCreateDOMComponent "wbr")

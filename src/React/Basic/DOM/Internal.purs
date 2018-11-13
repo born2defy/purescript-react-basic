@@ -93,5 +93,5 @@ type SharedProps specific =
   | specific
   )
 
-unsafeCreateDOMComponent :: forall props. String -> Component props
+unsafeCreateDOMComponent :: forall ctx props. String -> Component ctx props
 unsafeCreateDOMComponent = unsafeCoerce
