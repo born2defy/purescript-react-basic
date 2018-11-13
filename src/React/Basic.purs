@@ -19,14 +19,14 @@ module React.Basic
   , mkContext
   , useContext
   , runContext
-  , runNoContext
+  , runContextKeyed
   , Key
   , class ToKey
   , toKey
   , empty
   , keyed
   , fragment
- -- , element
+  , element
   , elementKeyed
   , displayName
   , module Data.Tuple
@@ -98,16 +98,6 @@ useContext = Render <<< useContext_
 
 foreign import useContext_ :: ∀ ctx. Context ctx -> Effect ctx
 
-noContext :: Context Unit
-noContext = mkContext unit
-
-runNoContext 
-  :: forall props
-   . Component Unit { | props }
-  -> { | props }
-  -> JSX
-runNoContext comp props = runContext comp noContext unit props
-
 runContext
   :: forall ctx props
    . Component ctx { | props }
@@ -118,6 +108,52 @@ runContext
 runContext (Component c) ctxObj ctx props = runFn4 runContext_ c ctxObj ctx props
 
 foreign import runContext_ :: ∀ ctx props. Fn4 (EffectFn1 { | props } JSX) (Context ctx) ctx { | props } JSX
+
+runContextKeyed
+  :: forall ctx props
+   . Component ctx { | props }
+  -> Context ctx
+  -> ctx
+  -> { key :: String | props }
+  -> JSX
+runContextKeyed (Component c) ctxObj ctx props = runFn4 runContextKeyed_ c ctxObj ctx props
+
+foreign import runContextKeyed_ :: ∀ ctx props. Fn4 (EffectFn1 { | props } JSX) (Context ctx) ctx { key :: String | props } JSX
+
+-- | Create a `JSX` node from a `Component`, by providing the props.
+-- |
+-- | This function is for non-React-Basic React components, such as those
+-- | imported from FFI.
+-- |
+-- | __*See also:* `Component`, `elementKeyed`__
+element
+  :: forall props
+   . Component Void { | props }
+  -> { | props }
+  -> JSX
+element (Component c) props = runFn2 element_ c props
+
+-- | Create a `JSX` node from a `Component`, by providing the props and a key.
+-- |
+-- | This function is for non-React-Basic React components, such as those
+-- | imported from FFI.
+-- |
+-- | __*See also:* `Component`, `element`, React's documentation regarding the special `key` prop__
+elementKeyed
+  :: forall ctx props
+   . Component ctx { | props }
+  -> { key :: String | props }
+  -> JSX
+elementKeyed = runFn2 elementKeyed_
+
+foreign import element_
+  :: forall props
+   . Fn2 (EffectFn1 { | props } JSX) { | props } JSX
+
+foreign import elementKeyed_
+  :: forall ctx props
+   . Fn2 (Component ctx { | props }) { key :: String | props } JSX
+
 
 -- | useState
 useState
@@ -249,34 +285,6 @@ keyed = runFn2 keyed_
 -- | __*See also:* `JSX`__
 foreign import fragment :: Array JSX -> JSX
 
--- | Create a `JSX` node from a `Component`, by providing the props.
--- |
--- | This function is for non-React-Basic React components, such as those
--- | imported from FFI.
--- |
--- | __*See also:* `Component`, `elementKeyed`__
-
--- | ORIGINAL VERSION BELOW
--- REPLACED WITH RUNCONTEXT AND RUNNOCONTEXT
--- element
---   :: forall props
---    . Component { | props }
---   -> { | props }
---   -> JSX
--- element (Component c) props = runFn2 element_ c props
-
--- | Create a `JSX` node from a `Component`, by providing the props and a key.
--- |
--- | This function is for non-React-Basic React components, such as those
--- | imported from FFI.
--- |
--- | __*See also:* `Component`, `element`, React's documentation regarding the special `key` prop__
-elementKeyed
-  :: forall ctx props
-   . Component ctx { | props }
-  -> { key :: String | props }
-  -> JSX
-elementKeyed = runFn2 elementKeyed_
 
 -- | Retrieve the Display Name from a `ComponentSpec`. Useful for debugging and improving
 -- | error messages in logs.
@@ -286,7 +294,6 @@ foreign import displayName
   :: forall props ctx
    . Component ctx props
   -> String
-
 
 
 -- |
@@ -342,10 +349,3 @@ foreign import useRef_
 
 foreign import keyed_ :: Fn2 String JSX JSX
 
-foreign import element_
-  :: forall props
-   . Fn2 (EffectFn1 { | props } JSX) { | props } JSX
-
-foreign import elementKeyed_
-  :: forall ctx props
-   . Fn2 (Component ctx { | props }) { key :: String | props } JSX

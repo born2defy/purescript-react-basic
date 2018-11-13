@@ -13,18 +13,25 @@ exports.mkContext_ = function(ctxVal){
     return React.createContext(ctxVal);
 };
 
-exports.runContext_ = function(component, ctxObj, ctx, props){
-  var provider = ctxObj.provider;
-  var payload = React.createElement.apply(null,[component, props].concat((props && props.children) || null));
+exports.runContext_ = runContextImp;
+
+function runContextImp(component, ctxObj, ctx, props) {
+  var provider = ctxObj.Provider;
+  var payload = elementImp(component, props);
   return React.createElement(provider, { value: ctx }, payload);
 }
 
-exports.element_ = function (component, props) {
+exports.runContextKeyed_ = runContextImp;
+
+function elementImp(component, props) {
   return React.createElement.apply(
     null,
     [component, props].concat((props && props.children) || null)
   );
-};
+}
+
+exports.element_ = elementImp;
+exports.elementKeyed_ = elementImp;
 
 exports.useState_ = function(initialState) {
   var state = React.useState(initialState);
@@ -53,15 +60,6 @@ exports.empty = null;
 exports.keyed_ = function(key, child) {
   return React.createElement(Fragment, { key: key }, child);
 };
-
-exports.element_ = function(component, props) {
-  return React.createElement.apply(
-    null,
-    [component, props].concat((props && props.children) || null)
-  );
-};
-
-exports.elementKeyed_ = exports.element_;
 
 exports.fragment = function(children) {
   return React.createElement.apply(null, [Fragment, {}].concat(children));

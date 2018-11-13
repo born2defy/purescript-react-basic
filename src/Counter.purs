@@ -5,7 +5,7 @@ import Prelude
 import Data.Maybe (Maybe(..))
 import Effect (Effect)
 import Effect.Exception (throw)
-import React.Basic (Context, CreateComponent, component, mkContext, render, runContext, runNoContext, toKey, useContext, useEffect, useState, (/\))
+import React.Basic (Context, CreateComponent, component, element, mkContext, render, runContext, toKey, useContext, useEffect, useState, (/\))
 import React.Basic.DOM (render) as DOM
 import React.Basic.DOM as R
 import React.Basic.DOM.Events (capture_)
@@ -46,22 +46,22 @@ mkCounter2 = do
 
     render $ R.button
       { onClick: capture_ $ setCounter (_ + 1)
-      , children: [ R.text $ "Increment: " <> show counter ]
+      , children: [ R.text $ "Increment: " <> show counter, R.text $ "  --  Context: " <> show cfg ]
       }
 
-start :: Effect Unit
-start = do
+main :: Effect Unit
+main = do
   container <- getElementById "container" =<< (map toNonElementParentNode $ document =<< window)
   case container of
     Nothing -> throw "Container element not found."
     Just c  -> do
       counter <- mkCounter
-      let app = runNoContext counter {}
+      let app = element counter {}
 
       counter2 <- mkCounter2
       let app2 = runContext counter2 ctx 10 {}
 
-      DOM.render app c
+      DOM.render app2 c
 
 
 foreign import setDocumentTitle :: String -> Effect Unit      
